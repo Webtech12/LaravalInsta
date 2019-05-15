@@ -11,17 +11,20 @@
   </div>
 
   <div class="col-9 p-5 pl-4 float-right">
-    <div><h1>TEST POST</h1></div>
+    <div class="d-flex justify-content-between align-items-baseline">
+      <h1>{{$user->username}}</h1>
+      <a href="#">Add Post</a>
+    </div>
     <div class="d-flex">
         <div class="pr-3"><strong>123</strong> posts</div>
         <div class="pr-3"><strong>23k</strong> followers</div>
         <div class="pr-3"><strong>211</strong> following</div>
     </div>
 
-    <div class="pt-4 font-weight-bold">dummy</div>
+    <div class="pt-4 font-weight-bold">{{$user->profile->title}}</div>
 
-  <div>A wiki is a knowledge base website on which users collaboratively modify content and structure directly from the web browser. In a typical wiki, text is written ...</div>
-  <div><a href="#">https://en.wikipedia.org/wiki/Wiki</a></div>
+  <div>{{$user->profile->description}}</div>
+  <div><a href="#">{{$user->profile->url}}</a></div>
   </div>
   
 </div>
