@@ -13,10 +13,12 @@
   <div class="col-9 p-5 pl-4 float-right">
     <div class="d-flex justify-content-between align-items-baseline">
       <h1>{{$user->username}}</h1>
-      <a href="#">Add Post</a>
+      <a href="/p/create">Add Post</a>
     </div>
+
+    <a href="/profile/{{ $user->id }}/edit">Edit Post</a>
     <div class="d-flex">
-        <div class="pr-3"><strong>123</strong> posts</div>
+        <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> posts</div>
         <div class="pr-3"><strong>23k</strong> followers</div>
         <div class="pr-3"><strong>211</strong> following</div>
     </div>
@@ -31,15 +33,16 @@
 
 <div class="row pt-5">
 
-    <div class="col-4">
-        <img src="https://educationaltechnology.net/wp-content/uploads/2017/09/wiki.gif" class="w-100">
-    </div>
-    <div class="col-4">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" class="w-100">
-    </div>
-    <div class="col-4">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" class="w-100">
-    </div>
+    @foreach ($user->posts as $post)
+    
+    <div class="col-4 pb-4">
+    <a href="/p/{{ $post->id }}">
+      <img src="/storage/{{ $post->image }}" class="w-100">
+    </a>
+    </div>    
+
+    @endforeach
+   
 
 </div>
 
